@@ -1,0 +1,16 @@
+.ward-order-chart {
+    position: relative;
+    width: 100%;
+    height: 200px;
+  }
+  
+  .chart-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #004080;
+    font-weight: bold;
+  }
+  
