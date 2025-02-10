@@ -6,6 +6,7 @@ import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
 import Profile from '../pages/Profile';
 import NotFound from '../pages/NotFound';
+import Population from '../pages/Population';
 
 const AppRoutes = () => (
   <Routes>
@@ -15,6 +16,7 @@ const AppRoutes = () => (
     <Route path="/dashboard" element={<Dashboard />} />
     <Route path="/profile" element={<Profile />} />
     <Route path="*" element={<NotFound />} />
+    <Route path="/population" element={<Population />} />
   </Routes>
 );
 
