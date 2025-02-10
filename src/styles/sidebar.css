@@ -1,0 +1,10 @@
+aside {
+    background: #ddd;
+    padding: 15px;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  
