@@ -18,7 +18,7 @@ const AppRoutes = () => (
     <Route path="/counter" element={<Counter />} />
     <Route path="/cart" element={<Cart />} />
     <Route path="*" element={<NotFound />} />
-    <Route path="/population" element={<Population />
+    <Route path="/population" element={<Population/>} />
   </Routes>
 );
 
