@@ -11,6 +11,7 @@ const Navbar = () => {
         <Link to="/profile">Profile</Link>
         <Link to="/cart">Cart</Link>
         <Link to="/counter">Counter</Link>
+        <Link to="/Population">Population</Link>
       </div>
       <div className="nav-right">
         <Link to="/login">Login</Link>

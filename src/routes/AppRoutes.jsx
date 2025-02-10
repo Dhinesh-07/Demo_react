@@ -7,6 +7,7 @@ import Profile from '../pages/Profile';
 import NotFound from '../pages/NotFound';
 import Counter from '../pages/Counter';
 import Cart from '../pages/Cart';
+import Population from '../pages/Population';
 
 const AppRoutes = () => (
   <Routes>
@@ -17,6 +18,7 @@ const AppRoutes = () => (
     <Route path="/counter" element={<Counter />} />
     <Route path="/cart" element={<Cart />} />
     <Route path="*" element={<NotFound />} />
+    <Route path="/population" element={<Population />
   </Routes>
 );
 
