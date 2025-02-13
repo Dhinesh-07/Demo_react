@@ -6,18 +6,19 @@ import {PopulationInterface}  from "../models/population-interface";
 const apiService = new ApiService();
 
 const Population = () => {
-  const [country, setCountry] = useState("");
-  const [population, setPopulation] = useState("");
-  const [error, setError] = useState("");
+  const [country, setCountry] = useState<PopulationInterface.Params['country']>(null);
+  const [population, setPopulation] = useState<PopulationInterface.PopulationIntProps['population']>();
+  const [error, setError] = useState<PopulationInterface.PopulationIntProps['error']>("");
 
   const fetchPopulation = async () => {
-    if (!country.trim()) {
+    if (!country?.trim()) {
       setError("Please enter a country name.");
       return;
     }
+    const params: PopulationInterface.Params = { country };
 
     try {
-        const response = await apiService.sendRequest(PopulationInterface.name, { country },) as PopulationInterface.retval;
+        const response = await apiService.sendRequest(PopulationInterface.name, { params },) as PopulationInterface.Retval;
 
       if (!response) {
         throw new Error("Country not found or API error");
@@ -26,13 +27,12 @@ const Population = () => {
       const data = response;
 
       if (data.count) {
-        setPopulation(data.count.toLocaleString());
+        setPopulation(data.count);
         setError("");
       } else {
         throw new Error("Population data not available");
       }
     } catch (error) {
-      setPopulation("");
       setError(error instanceof Error ? error.message : "An error occurred");
     }
   };
@@ -43,7 +43,7 @@ const Population = () => {
       <input
         type="text"
         placeholder="Enter country name"
-        value={country}
+        value={country ?? ""} 
         onChange={(e) => setCountry(e.target.value)}
       />
       <button onClick={fetchPopulation}>Get Population</button>
