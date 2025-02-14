@@ -1,7 +1,7 @@
 // population-interface.ts
 export namespace PopulationInterface {
     export interface Params {
-        country  : string | null;
+        coutry  : string | null;
     }
 
     export interface Retval {
@@ -17,7 +17,6 @@ export namespace PopulationInterface {
     }
 
     export const name =  "population/country";
-
 
 }
 

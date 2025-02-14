@@ -1,5 +1,4 @@
 // // ApiService.ts
-
 import { API_URL } from "../utils/apiUtl";
 
 export class ApiService {
@@ -7,21 +6,15 @@ export class ApiService {
         if (!api || !params) {
             throw new Error(`Invalid argument for sendRequest api: ${api} params: ${JSON.stringify(params)}`);
         }
-
-        // Check network status
         if (!navigator.onLine) {
             return { error: 'Network not available' };
         }
 
         try {
-            // Set up a timeout for the request if specified
             const controller = new AbortController();
             const timeoutId = timeoutMS ? setTimeout(() => controller.abort(), timeoutMS) : null;
-
-            // Construct query string for GET requests
             const queryString = new URLSearchParams(params as Record<string, string>).toString();
             const url = `${API_URL}/${api}?${queryString}`;
-
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {
@@ -31,8 +24,6 @@ export class ApiService {
                 },
                 signal: controller.signal,
             });
-
-            // Clear the timeout if the request completes in time
             if (timeoutId) clearTimeout(timeoutId);
 
             if (!response.ok) {
